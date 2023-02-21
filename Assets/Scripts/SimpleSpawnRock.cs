@@ -46,15 +46,17 @@ public class SimpleSpawnRock : MonoBehaviour
         if (LastRock.transform.position == WhereToSpawn.transform.position)
         {
             print("out of rocks");
+            
         }
         else
         {
+           
             if (gamemanager.rocks != 0)
             {
+                gamemanager.rocks--;
                 GameObject newRock = Instantiate(rockPrefab, WhereToSpawn.transform.position, Quaternion.identity);
                 newRock.transform.position = WhereToSpawn.transform.position;
                 LastRock = newRock;
-                gamemanager.rocks--;
             }
             else
             {
@@ -64,7 +66,7 @@ public class SimpleSpawnRock : MonoBehaviour
 
         }
 
-
+        gamemanager.UpdateUI();
 
     }
 

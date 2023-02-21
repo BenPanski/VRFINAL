@@ -36,6 +36,7 @@ public class Rock : MonoBehaviour
         if (other.CompareTag("Sack"))
         {
             SimpleSpawnRock.instance.TrySpawnRock();
+            other.transform.parent.transform.Translate(Vector3.up * 2 *-1*0.5f);
             gameObject.SetActive(false);
         }
     }

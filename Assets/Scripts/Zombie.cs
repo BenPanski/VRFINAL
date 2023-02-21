@@ -4,7 +4,7 @@ public class Zombie : MonoBehaviour
 {
     [HideInInspector] public GameManager gameManager;
     [SerializeField] int speed = 2;
-    [SerializeField] int damage = 2;
+    [SerializeField] int damage = 1;
     private void OnTriggerEnter(Collider other)
     {
         print("trigger");

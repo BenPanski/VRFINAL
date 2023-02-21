@@ -38,7 +38,7 @@ public class SimpleSpawnRock : MonoBehaviour
         StartGame();
     }
 
-
+   
     public void TrySpawnRock()
     {
 
@@ -49,9 +49,19 @@ public class SimpleSpawnRock : MonoBehaviour
         }
         else
         {
-            GameObject newRock = Instantiate(rockPrefab, WhereToSpawn.transform.position, Quaternion.identity);
-            newRock.transform.position = WhereToSpawn.transform.position;
-            LastRock = newRock;
+            if (gamemanager.rocks != 0)
+            {
+                GameObject newRock = Instantiate(rockPrefab, WhereToSpawn.transform.position, Quaternion.identity);
+                newRock.transform.position = WhereToSpawn.transform.position;
+                LastRock = newRock;
+                gamemanager.rocks--;
+            }
+            else
+            {
+                print("you have no balls sir!");
+            }
+
+
         }
 
 

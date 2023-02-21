@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] int hp;
     [SerializeField] public int rocks;
 
+
+
+    private void Update()
+    {
+        CheckIfAlive();
+    }
     public void AddRockAmount(int amount)
     {
         rocks += amount;
@@ -33,12 +40,18 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int amount)
     {
         hp -= amount;
+    }
+    public void CheckIfAlive()
+    {
         if (hp <= 0)
         {
-            Debug.Log("welcoome to dark souls");
+            LoseGame();
         }
     }
-
+    public void LoseGame()
+    {
+        SceneManager.LoadScene(0);
+    }
   
     
 }

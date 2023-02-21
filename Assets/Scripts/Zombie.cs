@@ -12,6 +12,7 @@ public class Zombie : MonoBehaviour
         if (other.gameObject.CompareTag("Rock"))
         {
             other.gameObject.GetComponent<Rock>().collided = true;
+            print("rock hit zombie");
             Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("GameManager"))

@@ -3,6 +3,9 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     public bool collided;
+    public bool StartDeathCount;
+
+    [SerializeField] public float RespawnDelay;
     float timer = 0;
 
 
@@ -13,9 +16,13 @@ public class Rock : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if (timer > 3)
+        if (timer > RespawnDelay && !StartDeathCount)
         {
             SimpleSpawnRock.instance.TrySpawnRock();
+            StartDeathCount = true;
+        }
+        if (StartDeathCount && timer >RespawnDelay*5)
+        {
             gameObject.SetActive(false);
         }
 

@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - SpawnBall
   - floor
+  - Sack
   layers:
   - Default
   - TransparentFX

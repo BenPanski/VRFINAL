@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collided: 0
   StartDeathCount: 0
-  RespawnDelay: 1
+  RespawnDelay: 0.5
 --- !u!135 &9056024432043600496
 SphereCollider:
   m_ObjectHideFlags: 0

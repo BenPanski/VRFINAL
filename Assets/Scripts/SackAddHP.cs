@@ -6,6 +6,7 @@ public class SackAddHP : Sack
 {
     public override void MySackFanc()
     {
+        print("add hp");
         gamemanager.AddHP(Amount);
     }
 }

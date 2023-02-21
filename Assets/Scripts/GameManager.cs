@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public void AddRockAmount(int amount)
     {
         rocks += amount;
-        rockSpawner.poolSize = rocks;
         Debug.Log("added" + amount + " now i have " + rocks);
     }
 

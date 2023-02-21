@@ -33,5 +33,12 @@ public class Rock : MonoBehaviour
         {
             collided = true;
         }
+        if (other.CompareTag("Sack"))
+        {
+            SimpleSpawnRock.instance.TrySpawnRock();
+            gameObject.SetActive(false);
+        }
     }
+
+   
 }

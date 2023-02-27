@@ -12,6 +12,7 @@ public class SimpleSpawnRock : MonoBehaviour
     public GameObject rockPrefab;
     [SerializeField] public GameObject WhereToSpawn;
     [SerializeField] public GameManager gamemanager;
+    [SerializeField] public List<GameObject>  rocks;
     private GameObject LastRock;
     public static SimpleSpawnRock instance;
 
@@ -41,7 +42,19 @@ public class SimpleSpawnRock : MonoBehaviour
    
     public void TrySpawnRock()
     {
-
+        int x = 0;
+        foreach (var item in rocks)
+        {
+            if (item.activeSelf)
+            {
+            x++;
+            }
+        }
+        if (x>3)
+        {
+            return;
+        }
+       
 
         if (LastRock.transform.position == WhereToSpawn.transform.position)
         {
@@ -53,8 +66,10 @@ public class SimpleSpawnRock : MonoBehaviour
            
             if (gamemanager.rocks != 0)
             {
+               
                 gamemanager.rocks--;
                 GameObject newRock = Instantiate(rockPrefab, WhereToSpawn.transform.position, Quaternion.identity);
+                rocks.Add(newRock);
                 newRock.transform.position = WhereToSpawn.transform.position;
                 LastRock = newRock;
             }
